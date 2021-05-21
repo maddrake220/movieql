@@ -1,4 +1,13 @@
-import {getMovies, deleteMovie, addMovie, getById} from "./db";
+import { getMovies } from "./db";
+
+const resolvers = {
+    Query: {
+        movies: (_, {limit, rating}) => getMovies(limit, rating)
+    }
+}
+
+
+/*import {getMovies, deleteMovie, addMovie, getById} from "./db";
 
  const resolvers = {
     Query: {
@@ -10,5 +19,5 @@ import {getMovies, deleteMovie, addMovie, getById} from "./db";
         deleteMovie: (_, {id}) =>deleteMovie(id)
     }
 }
-
+*/
 export default resolvers;
