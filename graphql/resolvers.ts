@@ -1,11 +1,13 @@
-const nico = {
-    name: "nico",
-    age: 18,
-    gender: "female"
-}
+import {getMovies, deleteMovie, addMovie, getById} from "./db";
+
  const resolvers = {
     Query: {
-        person:() => nico
+        movies: () => getMovies(),
+        movie: (_, {id}) => getById(id)
+    },
+    Mutation: {
+        addMovie: (_, {name, score}) => addMovie(name, score),
+        deleteMovie: (_, {id}) =>deleteMovie(id)
     }
 }
 
